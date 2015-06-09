@@ -3,9 +3,9 @@ namespace DomainAuthority;
 
 class DomainAuthority {
 
-	public static function test()
-	{
-		die('x');
-	}
+    public static function test()
+    {
+        die('x');
+    }
 
 }

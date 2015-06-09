@@ -11,7 +11,7 @@ class ServiceProvider extends SP {
      *
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      * Bootstrap the application events.
@@ -21,11 +21,11 @@ class ServiceProvider extends SP {
     public function boot()
     {
         $this->publishes(
-            [ __DIR__.'/../../config/domainauthority.php' => config_path('domainauthority.php') ],
+            [ __DIR__ . '/../config/domainauthority.php' => config_path('domainauthority.php') ],
             'config'
         );
 
-        $this->mergeConfigFrom(__DIR__.'/../../config/braintree.php', 'domainauthority');
+        $this->mergeConfigFrom(__DIR__ . '/../config/domainauthority.php', 'domainauthority');
     }
 
     /**
@@ -35,15 +35,7 @@ class ServiceProvider extends SP {
      */
     public function register()
     {   
-        $this->app['domainauthority'] = $this->app->share(function($app) {
         
-        });
-        
-        
-        
-        $this->app->singleton('command.braintree.example', function($app) {
-            return new BraintreeExampleCommand();
-        });
     }
 
     /**
