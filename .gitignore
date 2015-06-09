@@ -3,6 +3,8 @@
 .env.php
 .env
 
+.phpintel
+
 /vendor
 composer.phar
 composer.lock
