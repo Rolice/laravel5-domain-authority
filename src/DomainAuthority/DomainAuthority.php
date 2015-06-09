@@ -1,5 +1,5 @@
 <?php
-namespace Rolice\DomainAuthority;
+namespace DomainAuthority;
 
 class DomainAuthority {
 

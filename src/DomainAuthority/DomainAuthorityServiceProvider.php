@@ -1,4 +1,4 @@
-<?php namespace Rolice\DomainAuthority;
+<?php namespace DomainAuthority;
 
 use \Illuminate\Support\ServiceProvider;
 use \Illuminate\Support\Facades\Config;
@@ -10,7 +10,7 @@ class BraintreeServiceProvider extends ServiceProvider {
      *
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
 
     /**
      * Bootstrap the application events.
@@ -36,12 +36,7 @@ class BraintreeServiceProvider extends ServiceProvider {
     {
         
         $this->app['domainauthority'] = $this->app->share(function($app) {
-            Braintree_Configuration::environment($app['config']->get('braintree.environment'));
-            Braintree_Configuration::merchantId($app['config']->get('braintree.merchantId'));
-            Braintree_Configuration::publicKey($app['config']->get('braintree.publicKey'));
-            Braintree_Configuration::privateKey($app['config']->get('braintree.privateKey'));
         
-            return Braintree_Configuration::gateway();
         });
         
         
