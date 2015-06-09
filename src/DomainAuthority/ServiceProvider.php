@@ -1,4 +1,5 @@
-<?php namespace DomainAuthority;
+<?php
+namespace DomainAuthority;
 
 use \Illuminate\Support\ServiceProvider as SP;
 use \Illuminate\Support\Facades\Config;
@@ -33,8 +34,7 @@ class ServiceProvider extends SP {
      * @return void
      */
     public function register()
-    {
-        
+    {   
         $this->app['domainauthority'] = $this->app->share(function($app) {
         
         });
@@ -44,7 +44,6 @@ class ServiceProvider extends SP {
         $this->app->singleton('command.braintree.example', function($app) {
             return new BraintreeExampleCommand();
         });
-
     }
 
     /**
