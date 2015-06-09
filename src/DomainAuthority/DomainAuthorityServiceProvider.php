@@ -3,7 +3,7 @@
 use \Illuminate\Support\ServiceProvider;
 use \Illuminate\Support\Facades\Config;
 
-class BraintreeServiceProvider extends ServiceProvider {
+class DomainAuthorityServiceProvider extends ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.
