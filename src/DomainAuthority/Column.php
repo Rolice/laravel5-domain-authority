@@ -1,6 +1,8 @@
 <?php
 namespace DomainAuthority;
 
+use \ReflectionClass;
+
 class Column {
 
     const Title                                     = 1;                    // ut
@@ -34,11 +36,46 @@ class Column {
     const LinksToRootDomain                         = 8589934592;           // 
     const RootDomainsLinkingToSubdomain             = 17179869184;          // 
     const PageAuthority                             = 34359738368;          // 
-    const DomainAuthority                           = 68719476736;          // 
+    const DomainAuthority                           = 68719476736;          // pda
     const ExternalLinks                             = 549755813888;         // 
     const ExternalLinksToSubdomain                  = 140737488355328;      // 
     const ExternalLinksToRootDomain                 = 2251799813685248;     // 
     const LinkingCBlocks                            = 36028797018963968;    // 
     const TimeLastCrawled                           = 144115188075855872;   // 
-    
+
+    private $response = null;
+
+    private static $consts = [];
+
+    private static $mapping = [
+        Column::Title                               => [ 'ut' ],
+        Column::CanonicalUrl                        => [ 'uu' ],
+        Column::Subdomain                           => [ 'ufq' ],
+        Column::RootDomain                          => [ 'upl' ],
+
+        Column::DomainAuthority                     => [ 'pda' ],
+    ];
+
+    public function __construct($response)
+    {
+        if( ! self::$consts)
+            self::$consts = (new ReflectionClass($this))->getConstants();
+
+        $this->response = $response;
+    }
+
+    public function __get($name)
+    {
+        if( ! is_object($this->response) || ! isset(self::$consts[$name]))
+            return NULL;
+
+        if( ! isset(self::$mapping[self::$consts[$name]]))
+            return NULL;
+
+        foreach(self::$mapping[self::$consts[$name]] as $key)
+            if(isset($this->response->$key) || property_exists($this->response, $key))
+                return $this->response->$key;
+
+        return NULL;
+    }
 }
