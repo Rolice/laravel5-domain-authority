@@ -46,7 +46,9 @@ class ServiceProvider extends SP {
     public function provides()
     {
         return [
-            'Rolice\DomainAuthority',
+            'DomainAuthority\Column',
+            'DomainAuthority\DomainAuthority',
+            'DomainAuthority\DomainAuthorityException',
         ];
     }
 
