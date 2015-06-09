@@ -7,6 +7,7 @@ use Config;
 class DomainAuthority {
 
     const EXPIRATION_INTERVAL = 300;
+    const STATUS_OK           = 200;
     
     protected $access_id = null;
     protected $secret_key = null;
@@ -50,6 +51,15 @@ class DomainAuthority {
 
         curl_close($ch);
 
+        if(self::STATUS_OK !== $status || ! $result)
+            throw new DomainAuthorityException($status);
+
+        $result = json_decode($result);
+
+        if( ! $result)
+            throw new DomainAuthorityException(DomainAuthorityException::NonJson);
+
+        return $result;
     }
 
 }
