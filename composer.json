@@ -1,0 +1,26 @@
+{
+    "name": "rolice/laravel5-domain-authority",
+    "description": "Domain Authority Consumer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lyubomir Gardev",
+            "email": "l.gardev@intellisys.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*",
+        "illuminate/filesystem": "5.0.*",
+        "illuminate/console": "5.0.*",
+    },
+    "autoload": {
+        "psr-0": {
+            "Rolice\\DomainAuthority\\": "src/"
+        }
+    },
+    "support": {
+        "email": "l.gardev@intellisys.org"
+    },
+    "minimum-stability": "stable"
+}
