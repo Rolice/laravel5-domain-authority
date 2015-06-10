@@ -1,9 +1,7 @@
 <?php
 namespace DomainAuthority;
 
-use \ReflectionClass;
-
-class UrlMetrics {
+class UrlMetrics extends MozResponse {
 
     const Title                                     = 1;                    // ut
     const CanonicalUrl                              = 4;                    // uu
@@ -43,11 +41,9 @@ class UrlMetrics {
     const LinkingCBlocks                            = 36028797018963968;    // pib
     const TimeLastCrawled                           = 144115188075855872;   // ulc
 
-    private $response = null;
+    protected $response = null;
 
-    private static $consts = [];
-
-    private static $mapping = [
+    protected static $mapping = [
         'Title'                               => [ 'ut' ],
         'CanonicalUrl'                        => [ 'uu' ],
         'Subdomain'                           => [ 'ufq' ],
@@ -87,29 +83,4 @@ class UrlMetrics {
         'TimeLastCrawled'                     => [ 'ulc' ],
     ];
 
-    public function __construct($response)
-    {
-        if( ! self::$consts)
-            self::$consts = (new ReflectionClass($this))->getConstants();
-
-        if(!is_object($response))
-            throw new DomainAuthorityException(DomainAuthorityException::InvalidResponse);
-
-        $this->response = $response;
-    }
-
-    public function __get($name)
-    {
-        if( ! is_object($this->response) || ! isset(self::$consts[$name]))
-            return NULL;
-
-        if( ! isset(self::$mapping[$name]))
-            return NULL;
-
-        foreach(self::$mapping[$name] as $key)
-            if(isset($this->response->$key) || property_exists($this->response, $key))
-                return $this->response->$key;
-
-        return NULL;
-    }
 }
