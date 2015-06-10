@@ -5,7 +5,7 @@ This package is designed to consume statistical data from Moz API service. In or
 
 The API provide SEO, ranking and authority statistics about a websites, specific domains or subdomains, single pages and internal/external linking.
 
-This package is in basic development phase and not all fields and functionalities are covered. However the base is ready and it is matter of definition to fulfill other property data. Batch domain requests are not implemented as well.
+This package is in basic development phase and not all fields and functionalities are covered. However the base is ready and it is matter of definition to fulfill other property data. Link metrics are missing and batch domain requests are not implemented as well.
 
 The package is tested only on Laravel 5. It can be adapted for Laravel 4 easily as it does not depend on the framework heavily.
 
