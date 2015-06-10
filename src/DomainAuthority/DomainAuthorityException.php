@@ -57,7 +57,7 @@ class DomainAuthorityException extends Exception {
             $code = -1;
 
         $this->code = $code;
-        $this->message = $message;
+        $this->message = $messages[$code];
     }
 
 }
