@@ -48,7 +48,7 @@ Once the package is set up for you with the help of composer you have to define 
         // ...
         // ...
         'DomainAuthority'       => 'DomainAuthority\DomainAuthority',
-        'UrlMetrics'         => 'DomainAuthority\UrlMetrics',
+        'UrlMetrics'            => 'DomainAuthority\UrlMetrics',
     ],
 ```
 
