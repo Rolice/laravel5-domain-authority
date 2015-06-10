@@ -13,7 +13,7 @@ Feel free to fork and commit improvements and extensions of the project.
 The issues section is open for comments, problem reports and suggestions.
 
 ## Requirements
-This composer package exclusively require **64-bit version of PHP**, due to high values in the bit-fields, used to query Moz API. A fix is not planned currently for **32-bit versions of PHP**, since it will require major extension to support it without crapping the style with hardcoded values as strings.
+Installations via composer exclusively will require **64-bit version of PHP**, due to high values in the bit-fields, used to query Moz API. A fix is not planned currently for **32-bit versions of PHP**, since it will require major extension to support it without crapping the style with hardcoded values as strings.
 
 With manual installation it will work correctly util the column value or bitwise sum of columns for mozspace API exceed integer size on 32-bit platforms (32-bit builds of PHP).
 
