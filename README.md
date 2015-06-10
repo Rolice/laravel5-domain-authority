@@ -15,7 +15,7 @@ The issues section is open for comments, problem reports and suggestions.
 ## Requirements
 This composer package exclusively require **64-bit version of PHP**, due to high values in the bit-fields, used to query Moz API. A fix is not planned currently for **32-bit versions of PHP**, since it will require major extension to support it without crapping the style with hardcoded values as strings.
 
-With manual installation it will work correctly util the column value or bitwise sum of columns for mozspace API exceed integer size on 32-bit platforms (32-bit build of PHP).
+With manual installation it will work correctly util the column value or bitwise sum of columns for mozspace API exceed integer size on 32-bit platforms (32-bit builds of PHP).
 
 Read more about this issue on [URL Metrics](https://github.com/Rolice/laravel5-domain-authority/wiki/Url-Metrics) page in the project Wiki.
 
