@@ -18,7 +18,7 @@ class DomainAuthority {
         $this->secret_key = $this->secret_key ?: Config::get('domainauthority.moz-secret-key');
     }
 
-    public static function get($url, $cols = AuthorityData::DomainAuthority)
+    public static function urlMetrics($url, $cols = UrlMetrics::DomainAuthority)
     {
         $self = App::make('DomainAuthority');
         $expires = time() + self::EXPIRATION_INTERVAL;
@@ -59,7 +59,7 @@ class DomainAuthority {
         if( ! $result)
             throw new DomainAuthorityException(DomainAuthorityException::NonJson);
 
-        return new AuthorityData($result);
+        return new UrlMetrics($result);
     }
 
 }

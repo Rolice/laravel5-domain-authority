@@ -32,7 +32,7 @@ Once the package is set up for you with the help of composer you have to define 
         // ...
         // ...
         'DomainAuthority'       => 'DomainAuthority\DomainAuthority',
-        'AuthorityData'         => 'DomainAuthority\AuthorityData',
+        'UrlMetrics'         => 'DomainAuthority\UrlMetrics',
     ],
 ```
 
@@ -52,16 +52,17 @@ They can be obtained from the [**Access** section of your **API Dashboard** in M
 Now you are ready to consume the data.
 
 ## Usage
+Currently only URL metrics are implemented at basic level.
 An example how to collect title data and domain authority about an URL is written below:
 
 ```php
 // Gather data in controller, model or anywhere it is appropriate to do so
 $data = App::make('DomainAuthority')
-    ->get('www.seomoz.org', AuthorityData::DomainAuthority | AuthorityData::Title);
+    ->get('www.seomoz.org', UrlMetrics::DomainAuthority | UrlMetrics::Title);
 
 // Display results somewhere in the views with Blade template engine
 {{ $data->DomainAuthority }} / {{ $data->Title }}
 ```
-The `get` method of the `DomainAuthority` requires an URL address and columns. The columns are passed in the same style as for the Moz API - in bit field. The result is an instance of `AuthorityData`, with fields named same way as the columns requested (the class constants).
+The `get` method of the `DomainAuthority` requires an URL address and columns. The columns are passed in the same style as for the Moz API - in bit field. The result is an instance of `UrlMetrics`, with fields named same way as the columns requested (the class constants).
 
-**Caution**: These fields are dynamically generated with the help of `__get` magic method and `ReflectionClass`. They are not defined in the `AuthorityData` class. Some functions like `proprty_exists` may fail on detecting them.
+**Caution**: These fields are dynamically generated with the help of `__get` magic method and `ReflectionClass`. They are not defined in the `UrlMetrics` class. Some functions like `proprty_exists` may fail on detecting them.
