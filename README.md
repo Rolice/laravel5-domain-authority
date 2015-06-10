@@ -42,7 +42,7 @@ After you are done you have to publish the the package through the following art
 
 `php artisan vendor:publish`
 
-This is required in order to publish the config of the package directly in application config folder. You will find there the new file named `domainauthority.php`. Edit it and enter the data from your Moz about service authorization:
+This is required in order to publish the config of the package directly in application config folder. You will find there the new file named `domainauthority.php`. Edit it and enter the data from your Moz account service authorization:
 
 * *Access ID*
 * *Secret Key*
