@@ -1,5 +1,5 @@
 # laravel5-domain-authority
-Domain authority API consumer for laravel 5, relying on [Moz](http://moz.com).
+Domain authority API consumer for Laravel 5 and inclusively any composer project, relying on [Moz](http://moz.com).
 
 This package is designed to consume statistical data from Moz API service. In order to utilize the functionality you should have at least free moz account, which can be registered here: https://moz.com/community/join.
 
