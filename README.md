@@ -27,7 +27,7 @@ The installation process is extremely easy with composer.
 
 Use for production installations:
 
-`composer require 'rolice/laravel5-domain-authority:0.3'` (production, stable)
+`composer require 'rolice/laravel5-domain-authority:0.3.1'` (production, stable)
 
 Latest development version:
 
