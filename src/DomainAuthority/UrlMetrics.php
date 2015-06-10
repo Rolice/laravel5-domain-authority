@@ -48,43 +48,43 @@ class UrlMetrics {
     private static $consts = [];
 
     private static $mapping = [
-        self::Title                               => [ 'ut' ],
-        self::CanonicalUrl                        => [ 'uu' ],
-        self::Subdomain                           => [ 'ufq' ],
-        self::RootDomain                          => [ 'upl' ],
-        self::ExternalEquityLinks                 => [ 'ueid' ],
-        self::SubdomainExternalLinks              => [ 'feid' ],
-        self::RootDomainExternalLinks             => [ 'peid' ],
-        self::EquityLinks                         => [ 'ujid' ],
-        self::SubdomainLinking                    => [ 'uifq' ],
-        self::RootDomainsLinking                  => [ 'uipl' ],
-        self::Links                               => [ 'uid' ],
-        self::SubdomainSubdomainLinking           => [ 'fid' ],
-        self::RootDomainRootDomainLinking         => [ 'pid' ],
-        self::MozRankUrl                          => [ 'umrp', 'umrr' ],
-        self::MozRankSubdomain                    => [ 'fmrp', 'fmrr' ],
-        self::MozRankRootDomain                   => [ 'pmrp', 'pmrr' ],
-        self::MozTrust                            => [ 'utrp', 'utrr' ],
-        self::MozTrustSubdomain                   => [ 'ftrp', 'ftrr' ],
-        self::MozTrustRootDomain                  => [ 'ptrp', 'ptrr' ],
-        self::MozRankExternalEquity               => [ 'uemrp', 'uemrr' ],
-        self::MozRankSubdomainExternalEquity      => [ 'fejp', 'fejr' ],
-        self::MozRankRootDomainExternalEquity     => [ 'pejp', 'pejr' ],
-        self::MozRankSubdomainCombined            => [ 'pjp', 'pjr' ],
-        self::MozRankRootDomainCombined           => [ 'fjp', 'fjr' ],
-        self::SubdomainSpamScore                  => [ 'fspsc', 'fspf', 'flan', 'fsps', 'fsplc', 'fspp' ],
-        self::Social                              => [ 'ffb', 'ftw', 'fg+', 'fem*' ],
-        self::HTTPStatusCode                      => [ 'us' ],
-        self::LinksToSubdomain                    => [ 'fuid' ],
-        self::LinksToRootDomain                   => [ 'puid' ],
-        self::RootDomainsLinkingToSubdomain       => [ 'fipl' ],
-        self::PageAuthority                       => [ 'upa' ],
-        self::DomainAuthority                     => [ 'pda' ],
-        self::ExternalLinks                       => [ 'ued' ],
-        self::ExternalLinksToSubdomain            => [ 'fed' ],
-        self::ExternalLinksToRootDomain           => [ 'ped' ],
-        self::LinkingCBlocks                      => [ 'pib' ],
-        self::TimeLastCrawled                     => [ 'ulc' ],
+        'Title'                               => [ 'ut' ],
+        'CanonicalUrl'                        => [ 'uu' ],
+        'Subdomain'                           => [ 'ufq' ],
+        'RootDomain'                          => [ 'upl' ],
+        'ExternalEquityLinks'                 => [ 'ueid' ],
+        'SubdomainExternalLinks'              => [ 'feid' ],
+        'RootDomainExternalLinks'             => [ 'peid' ],
+        'EquityLinks'                         => [ 'ujid' ],
+        'SubdomainLinking'                    => [ 'uifq' ],
+        'RootDomainsLinking'                  => [ 'uipl' ],
+        'Links'                               => [ 'uid' ],
+        'SubdomainSubdomainLinking'           => [ 'fid' ],
+        'RootDomainRootDomainLinking'         => [ 'pid' ],
+        'MozRankUrl'                          => [ 'umrp', 'umrr' ],
+        'MozRankSubdomain'                    => [ 'fmrp', 'fmrr' ],
+        'MozRankRootDomain'                   => [ 'pmrp', 'pmrr' ],
+        'MozTrust'                            => [ 'utrp', 'utrr' ],
+        'MozTrustSubdomain'                   => [ 'ftrp', 'ftrr' ],
+        'MozTrustRootDomain'                  => [ 'ptrp', 'ptrr' ],
+        'MozRankExternalEquity'               => [ 'uemrp', 'uemrr' ],
+        'MozRankSubdomainExternalEquity'      => [ 'fejp', 'fejr' ],
+        'MozRankRootDomainExternalEquity'     => [ 'pejp', 'pejr' ],
+        'MozRankSubdomainCombined'            => [ 'pjp', 'pjr' ],
+        'MozRankRootDomainCombined'           => [ 'fjp', 'fjr' ],
+        'SubdomainSpamScore'                  => [ 'fspsc', 'fspf', 'flan', 'fsps', 'fsplc', 'fspp' ],
+        'Social'                              => [ 'ffb', 'ftw', 'fg+', 'fem*' ],
+        'HTTPStatusCode'                      => [ 'us' ],
+        'LinksToSubdomain'                    => [ 'fuid' ],
+        'LinksToRootDomain'                   => [ 'puid' ],
+        'RootDomainsLinkingToSubdomain'       => [ 'fipl' ],
+        'PageAuthority'                       => [ 'upa' ],
+        'DomainAuthority'                     => [ 'pda' ],
+        'ExternalLinks'                       => [ 'ued' ],
+        'ExternalLinksToSubdomain'            => [ 'fed' ],
+        'ExternalLinksToRootDomain'           => [ 'ped' ],
+        'LinkingCBlocks'                      => [ 'pib' ],
+        'TimeLastCrawled'                     => [ 'ulc' ],
     ];
 
     public function __construct($response)
@@ -101,15 +101,15 @@ class UrlMetrics {
     public function __get($name)
     {
         if( ! is_object($this->response) || ! isset(self::$consts[$name]))
-            return null;
+            return NULL;
 
-        if( ! isset(self::$mapping[self::$consts[$name]]))
-            return null;
+        if( ! isset(self::$mapping[$name]))
+            return NULL;
 
-        foreach(self::$mapping[self::$consts[$name]] as $key)
+        foreach(self::$mapping[$name] as $key)
             if(isset($this->response->$key) || property_exists($this->response, $key))
                 return $this->response->$key;
 
-        return null;
+        return NULL;
     }
 }
