@@ -27,7 +27,7 @@ The installation process is extremely easy with composer.
 
 Use for production installations:
 
-`composer require 'rolice/laravel5-domain-authority:0.3'` (production, stable)
+`composer require 'rolice/laravel5-domain-authority:0.3.1'` (production, stable)
 
 Latest development version:
 
@@ -74,7 +74,7 @@ An example how to collect title data and domain authority about an URL is writte
 ```php
 // Gather data in controller, model or anywhere it is appropriate to do so
 $data = App::make('DomainAuthority')
-    ->get('www.seomoz.org', UrlMetrics::DomainAuthority | UrlMetrics::Title);
+    ->urlMetrics('www.seomoz.org', UrlMetrics::DomainAuthority | UrlMetrics::Title);
 
 // Display results somewhere in the views with Blade template engine
 {{ $data->DomainAuthority }} / {{ $data->Title }}
