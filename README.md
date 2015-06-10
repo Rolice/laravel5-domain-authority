@@ -64,4 +64,4 @@ $data = App::make('DomainAuthority')
 ```
 The `get` method of the `DomainAuthority` requires an URL address and columns. The columns are passed in the same style as for the Moz API - in bit field. The result is an instance of `AuthorityData`, with fields named same way as the columns requested (the class constants).
 
-**Caution**: These fields are dynamically generated with the help of `__get` magic method and they are not defined in the `AuthorityData` class. Some functions like `proprty_exists` may fail on detecting them.
+**Caution**: These fields are dynamically generated with the help of `__get` magic method and `ReflectionClass`. They are not defined in the `AuthorityData` class. Some functions like `proprty_exists` may fail on detecting them.
