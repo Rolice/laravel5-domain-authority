@@ -5,6 +5,7 @@ use \Exception;
 
 class DomainAuthorityException extends Exception {
 
+    const InvalidResponse                   = -4;
     const EmptyResponse                     = -3;
     const NonJson                           = -2;
     const Unknown                           = -1;
@@ -27,6 +28,7 @@ class DomainAuthorityException extends Exception {
     const ServiceUnavailable                = 503;
 
     private static $messages = [
+        -4              => 'Invalid Response',
         -3              => 'Empty Response',
         -2              => 'Non-JSON Response',
         -1              => 'Unknown',

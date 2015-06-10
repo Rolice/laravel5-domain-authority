@@ -3,7 +3,7 @@ namespace DomainAuthority;
 
 use \ReflectionClass;
 
-class Column {
+class AuthorityData {
 
     const Title                                     = 1;                    // ut
     const CanonicalUrl                              = 4;                    // uu
@@ -60,6 +60,9 @@ class Column {
     {
         if( ! self::$consts)
             self::$consts = (new ReflectionClass($this))->getConstants();
+
+        if(!is_object($response))
+            throw new DomainAuthorityException(DomainAuthorityException::InvalidResponse);
 
         $this->response = $response;
     }

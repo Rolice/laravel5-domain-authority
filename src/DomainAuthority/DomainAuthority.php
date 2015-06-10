@@ -59,7 +59,7 @@ class DomainAuthority {
         if( ! $result)
             throw new DomainAuthorityException(DomainAuthorityException::NonJson);
 
-        return $result;
+        return new AuthorityData($result);
     }
 
 }
