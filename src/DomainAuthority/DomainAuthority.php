@@ -18,7 +18,7 @@ class DomainAuthority {
         $this->secret_key = $this->secret_key ?: Config::get('domainauthority.moz-secret-key');
     }
 
-    public static function get($url, $cols = Column::DomainAuthority)
+    public static function get($url, $cols = AuthorityData::DomainAuthority)
     {
         $self = App::make('DomainAuthority');
         $expires = time() + self::EXPIRATION_INTERVAL;

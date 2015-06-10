@@ -48,12 +48,12 @@ class AuthorityData {
     private static $consts = [];
 
     private static $mapping = [
-        Column::Title                               => [ 'ut' ],
-        Column::CanonicalUrl                        => [ 'uu' ],
-        Column::Subdomain                           => [ 'ufq' ],
-        Column::RootDomain                          => [ 'upl' ],
+        self::Title                               => [ 'ut' ],
+        self::CanonicalUrl                        => [ 'uu' ],
+        self::Subdomain                           => [ 'ufq' ],
+        self::RootDomain                          => [ 'upl' ],
 
-        Column::DomainAuthority                     => [ 'pda' ],
+        self::DomainAuthority                     => [ 'pda' ],
     ];
 
     public function __construct($response)
