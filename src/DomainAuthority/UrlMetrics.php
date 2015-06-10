@@ -101,15 +101,15 @@ class UrlMetrics {
     public function __get($name)
     {
         if( ! is_object($this->response) || ! isset(self::$consts[$name]))
-            return NULL;
+            return null;
 
         if( ! isset(self::$mapping[self::$consts[$name]]))
-            return NULL;
+            return null;
 
         foreach(self::$mapping[self::$consts[$name]] as $key)
             if(isset($this->response->$key) || property_exists($this->response, $key))
                 return $this->response->$key;
 
-        return NULL;
+        return null;
     }
 }
