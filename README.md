@@ -12,6 +12,16 @@ The package is tested only on Laravel 5. It can be adapted for Laravel 4 easily 
 Feel free to fork and commit improvements and extensions of the project.
 The issues section is open for comments, problem reports and suggestions.
 
+## Implementation Level (Supported API)
+Here is defined the progress of implementation against Moz API. End-points marked with **+** are implemented, those with **-** are not.
+
+* Anchor Text Metrics (-)
+* Link Metrics (-)
+* Top Pages (-)
+* URL Metrics (+)
+* Index Metadata (-)
+
+
 ## Installation
 The installation process is extremely easy with composer.
 
@@ -52,7 +62,7 @@ They can be obtained from the [**Access** section of your **API Dashboard** in M
 Now you are ready to consume the data.
 
 ## Usage
-Currently only URL metrics are implemented at basic level.
+Currently only URL metrics are implemented.
 An example how to collect title data and domain authority about an URL is written below:
 
 ```php
