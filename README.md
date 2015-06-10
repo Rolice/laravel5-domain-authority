@@ -26,9 +26,11 @@ Here is defined the progress of implementation against Moz API. End-points marke
 The installation process is extremely easy with composer.
 
 Use for production installations:
+
 `composer require 'rolice/laravel5-domain-authority:0.3'` (production, stable)
 
 Latest development version:
+
 `composer require 'rolice/laravel5-domain-authority:dev-master'` (latest, unstable)
 
 Once the package is set up for you with the help of composer you have to define service provider and aliases in the application config file, located at `<project_root>/config/app.php`.
