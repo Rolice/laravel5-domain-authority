@@ -62,7 +62,12 @@ class DomainAuthority {
         return new UrlMetrics($result);
     }
 
-    public static function linkMetrics($scope, $sort = 'domain_authority', $filter, $sourceCols, $targetCols)
+    public static function linkMetrics(
+        $sourceCols,
+        $targetCols,
+        $scope = LinkMetrics::ScopeDomainToDomain,
+        $sort = LinkMetrics::SortDomainAuthority,
+        $filter = [ LinkMetrics::FilterFollow, LinkMetrics::FilterExternal ])
     {
 
     }
