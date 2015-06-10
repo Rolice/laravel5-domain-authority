@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "Lyubomir Gardev",
-            "email": "l.gardev@intellisys.org"
+            "email": "rolice@intellisys.org"
         }
     ],
     "keywords": [
@@ -27,7 +27,7 @@
         }
     },
     "support": {
-        "email": "l.gardev@intellisys.org"
+        "email": "rolice@intellisys.org"
     },
     "minimum-stability": "stable"
 }
