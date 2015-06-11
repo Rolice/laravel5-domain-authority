@@ -1,5 +1,5 @@
 # laravel5-domain-authority
-Domain authority API consumer for laravel 5, relying on [Moz](http://moz.com).
+Domain authority API consumer for Laravel 5 and inclusively any composer project, relying on [Moz](http://moz.com).
 
 This package is designed to consume statistical data from Moz API service. In order to utilize the functionality you should have at least free moz account, which can be registered here: https://moz.com/community/join.
 
@@ -13,7 +13,11 @@ Feel free to fork and commit improvements and extensions of the project.
 The issues section is open for comments, problem reports and suggestions.
 
 ## Requirements
-This package exclusively require **64-bit version of PHP**, due to high values in the bit-fields, used to query Moz API. A fix is not planned currently for **32-bit versions of PHP**, since it will require major extension to support it without crapping the style with hardcoded code. 
+Installations via composer exclusively will require **64-bit version of PHP**, due to high values in the bit-fields, used to query Moz API. A fix is not planned currently for **32-bit versions of PHP**, since it will require major extension to support it without crapping the style with hardcoded values as strings.
+
+With manual installation it will work correctly util the column value or bitwise sum of columns for mozspace API exceed integer size on 32-bit platforms (32-bit builds of PHP).
+
+Read more about this issue on [URL Metrics](https://github.com/Rolice/laravel5-domain-authority/wiki/Url-Metrics) page in the project Wiki.
 
 ## Implementation Level (Supported API)
 Here is defined the progress of implementation against Moz API. End-points marked with **+** are implemented, those with **-** are not.
