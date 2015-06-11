@@ -3,8 +3,6 @@ namespace DomainAuthority;
 
 abstract class MozResponse {
 
-    use Util;
-
     protected $response = null;
     protected static $mapping = [];
 
