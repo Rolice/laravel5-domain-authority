@@ -4,7 +4,7 @@ namespace DomainAuthority;
 abstract class MozResponse {
 
     protected $response = null;
-    protected static $mapping = [];
+    protected $mapping = [];
 
     public function __construct($response)
     {
@@ -19,10 +19,10 @@ abstract class MozResponse {
         if( ! is_object($this->response))
             return NULL;
 
-        if( ! isset(self::$mapping[$name]))
+        if( ! isset($this->mapping[$name]))
             return NULL;
 
-        foreach(self::$mapping[$name] as $key)
+        foreach($this->mapping[$name] as $key)
             if(isset($this->response->$key) || property_exists($this->response, $key))
                 return $this->response->$key;
 

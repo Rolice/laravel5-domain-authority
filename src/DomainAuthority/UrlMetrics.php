@@ -43,7 +43,7 @@ class UrlMetrics extends MozResponse {
 
     protected $response = null;
 
-    protected static $mapping = [
+    protected $mapping = [
         'Title'                               => [ 'ut' ],
         'CanonicalUrl'                        => [ 'uu' ],
         'Subdomain'                           => [ 'ufq' ],
