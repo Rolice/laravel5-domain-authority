@@ -28,13 +28,16 @@ Here is defined the progress of implementation against Moz API. End-points marke
 * URL Metrics (+)
 * Index Metadata (-)
 
+### Additional Features
+* Domain Age Calculator - an interface gathering registration/creation/activation date of a domain and age calculation. 
+
 
 ## Installation
 The installation process is extremely easy with composer.
 
 Use for production installations:
 
-`composer require 'rolice/laravel5-domain-authority:0.3.1'` (production, stable)
+`composer require 'rolice/laravel5-domain-authority:0.3.2'` (production, stable)
 
 Latest development version:
 
@@ -54,6 +57,7 @@ Once the package is set up for you with the help of composer you have to define 
     'aliases' => [
         // ...
         // ...
+        'DomainAge'             => 'DomainAuthority\DomainAge',
         'DomainAuthority'       => 'DomainAuthority\DomainAuthority',
         'UrlMetrics'            => 'DomainAuthority\UrlMetrics',
     ],
@@ -89,3 +93,18 @@ $data = App::make('DomainAuthority')
 The `get` method of the `DomainAuthority` requires an URL address and columns. The columns are passed in the same style as for the Moz API - in bit field. The result is an instance of `UrlMetrics`, with fields named same way as the columns requested (the class constants).
 
 **Caution**: These fields are dynamically generated with the help of `__get` magic method and `ReflectionClass`. They are not defined in the `UrlMetrics` class. Some functions like `proprty_exists` may fail on detecting them.
+
+### Domain Age Usage
+You can use Domain Age interface fairly easily. It works with who.is website and parses the dates from their response. The class is named `DomainAge`. It contains three methods:
+
+* since - method that retrieves the registration date of a domain
+* age - method that calls since and gives the current age of a domain, measured in years
+* fromDate - directly calcualate age by given date in string format, again, in years
+
+```
+$since = App::make('DomainAge')->since($this->item->url); // The $since variable will contain Carbon instance or null on failure
+$age =  App::make('DomainAge')->age($this->item->url); // Will contain int with years of age, months and others are ignored
+$age2 = DomainAge::fromDate('2010-10-01'); // This will calculate directly age from the given date, useful with previously stored values
+```
+
+**Inpotant**: Keep in mind that `since` and `age` methods will produce cURL request to who.is website, and exceeding certain limits may result in temporarily unavailable service or ban. A good idea here is to store domain birth date returned from `since` method in some data repository (DB, FileSystem, etc.) and use `fromDate` to directly get age later without new requests.

@@ -46,9 +46,10 @@ class ServiceProvider extends SP {
     public function provides()
     {
         return [
-            'DomainAuthority\UrlMetrics',
+            'DomainAuthority\DomainAge',
             'DomainAuthority\DomainAuthority',
             'DomainAuthority\DomainAuthorityException',
+            'DomainAuthority\UrlMetrics',
         ];
     }
 

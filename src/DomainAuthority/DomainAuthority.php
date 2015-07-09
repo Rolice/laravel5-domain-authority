@@ -9,15 +9,33 @@ class DomainAuthority {
     const EXPIRATION_INTERVAL = 300;
     const STATUS_OK           = 200;
     
+    /**
+     * Moz API Access ID to be used in API requests
+     * @var string
+     */
     protected $access_id = null;
+
+    /**
+     * Moz API secret key to be used with API requests
+     * @var string
+     */
     protected $secret_key = null;
 
+    /**
+     * Constructor that sets up a new instance with API credentials from config
+     */
     public function __construct()
     {
         $this->access_id = $this->access_id ?: Config::get('domainauthority.moz-access-id');
         $this->secret_key = $this->secret_key ?: Config::get('domainauthority.moz-secret-key');
     }
 
+    /**
+     * Executes URL Metrics API Request
+     * @param  string $url        The URL which is target of examinaiton
+     * @param  int|bitfield $cols URL Metrics columns with data to retrieve
+     * @return UrlMetrics         An UrlMetrics wrapper object with resulting data
+     */
     public static function urlMetrics($url, $cols = UrlMetrics::DomainAuthority)
     {
         $self = App::make('DomainAuthority');
